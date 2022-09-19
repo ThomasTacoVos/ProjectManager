@@ -1,0 +1,18 @@
+#header {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#header a:link {
+    text-decoration: none;
+  }
+
+#header li {
+
+    width: 8%;
+
+}
