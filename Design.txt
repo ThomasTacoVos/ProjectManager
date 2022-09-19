@@ -1,0 +1,26 @@
+Angular test project ticket systeem
+
+
+Dashboard  dependency - Project, Ticket, user
+
+Project
+- Project
+- Project detail
+- Project service
+- Tickets
+- - Ticket
+- - Ticket detail
+- - Ticket service
+
+
+Profile
+- User
+- User detail 
+- User service
+- Admin
+- - Admin detail
+- - Admin service
+- - Admin dashboard
+
+Message service
+- Om dingen te testen
