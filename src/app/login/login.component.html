@@ -1,7 +1,8 @@
-<form>
+<form [formGroup]="loginForm" (submit)="onSubmit()" >
     <label for = "username">Username</label><br>
     <input type = "text" id ="username"> <br>
     <label for = "password">Password</label><br>
     <input><br>
-    <button (click)="login()">Login</button>
+    <button (click)="login(username, password)">Login</button>
 </form>
+{{loggedIn}}
