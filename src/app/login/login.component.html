@@ -1,8 +1,8 @@
 <form [formGroup]="loginForm" (submit)="onSubmit()" >
     <label for = "username">Username</label><br>
-    <input type = "text" id ="username"> <br>
+    <input id="username" type = "text" formControlName="username"> <br>
     <label for = "password">Password</label><br>
-    <input><br>
-    <button (click)="login(username, password)">Login</button>
+    <input id="password" type = "password" formControlName="password"><br>
+    <button type="submit">Submit</button>
 </form>
 {{loggedIn}}
