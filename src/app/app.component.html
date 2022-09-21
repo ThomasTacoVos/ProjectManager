@@ -1,10 +1,14 @@
 <h1> {{title}}</h1>
-<nav>
-    <ul id ="header">
-        <li><a routerLink = "">Home</a></li>
-        <li><a routerLink ="profile">Profile</a></li>
-        <li><a routerLink ="login">Login</a></li>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <ul id ="header" class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" routerLink = "">Home</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink ="profile">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink ="login">Login</a></li>
 
     </ul>
+    <form class="form-inline">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
 </nav>
 <router-outlet></router-outlet>
