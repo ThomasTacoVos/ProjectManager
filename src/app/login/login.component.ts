@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-
+import { Router } from '@angular/router';
+import { User } from '../user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,17 +15,33 @@ export class LoginComponent implements OnInit {
 
   })
   loggedIn = false
+  submitted = false
+  loading = false
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    ) { 
 
-  constructor(private fb: FormBuilder, private authService: AuthService) { }
+
+    }
 
   ngOnInit(): void {
     
   }
-  // get f() { return this.loginForm.controls}
+  get f() { return this.loginForm.controls}
   onSubmit() {
+    this.submitted = true
+    // console.warn('dit zijn errors' + this.f.username.errors?.[required)
     console.warn(this.loginForm.value);
+    if (this.loginForm.invalid) {
+      console.log("form invalid")
+      return;
+    }
+    this.loading = true
      if (this.authService.onSubmit({ username: this.loginForm.value.username!, password: this.loginForm.value.password! }) ){
-        console.warn('hello')
+        console.warn('hello')      
+        this.router.navigate(['/']);
      }
   }
 } 
