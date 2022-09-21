@@ -1,8 +1,11 @@
-<form [formGroup]="loginForm" (submit)="onSubmit()" >
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <label for = "username">Username</label><br>
-    <input id="username" type = "text" formControlName="username"> <br>
+    <input id="username" type = "text" formControlName = "username"> <br>
     <label for = "password">Password</label><br>
-    <input id="password" type = "password" formControlName="password"><br>
+    <input id="password" type = "password" formControlName = "password"><br>
     <button type="submit">Submit</button>
 </form>
 {{loggedIn}}
+<p>Value: {{   this.loginForm.value.password }}</p>
+
+<!-- [formGroup]="loginForm" (submit)="test()" -->
