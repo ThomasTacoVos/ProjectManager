@@ -9,7 +9,7 @@ export class AuthService {
 
   // private currentUserSubject: BehaviorSubject<User>;
   // public currentUser: Observable<User>;
-
+  currentUser?: User
 
   constructor() { 
     // this.currentUserSubject = new BehaviorSubject<User>(UsersDB.values[])
@@ -21,10 +21,15 @@ export class AuthService {
     for (let user of UsersDB){
       // console.warn(user.username)
       if (username == user.username && password == user.password){
+        this.currentUser = user
         return true
       }
     }
     return false;
   }
+  getCurrentUser(){
+    return this.currentUser?.username;
+  }
+
 }
 

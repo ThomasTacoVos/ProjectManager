@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     this.loading = true
      if (this.authService.onSubmit({ username: this.loginForm.value.username!, password: this.loginForm.value.password! }) ){
         console.warn('hello')      
-        this.router.navigate(['/']);
+        this.router.navigate(['/dashboard']);
      }
   }
 } 
