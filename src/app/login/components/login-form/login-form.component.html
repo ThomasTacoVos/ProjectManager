@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form class="form-signin w-100 m-auto"[formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <label for = "username">Username</label><br>
     <input id="username" type = "text" formControlName = "username" class="form-control formInput"
         [ngClass]="{'is-invalid': submitted && f.username.errors }" >
@@ -14,9 +14,10 @@
         <div *ngIf="f.password.errors?.['required']">Password is required</div>
     </div> 
     <br>
-    <button type="submit"  class="btn btn-primary" >Submit</button>
+    <button type="submit"  class="w-100 btn btn-lg btn-primary" >Submit</button>
 </form>
 {{loggedIn}}
+
 <p>Value: {{   this.loginForm.value.password }}</p>
 
 <!-- [formGroup]="loginForm" (submit)="test()" -->

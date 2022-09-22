@@ -1,14 +1,15 @@
 
 import { Component, OnInit } from '@angular/core';
 import { UsersDB } from 'src/app/db/test-users';
-import { UserService } from 'src/app/user.service';
-import { User } from 'src/app/user';
+import { UserService } from 'src/app/user/services/user.service';
+import { User } from '../../models/user';
+
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserListComponent implements OnInit {
   users = UsersDB
   selectedUser?: User;
   onSelect(user: User): void {

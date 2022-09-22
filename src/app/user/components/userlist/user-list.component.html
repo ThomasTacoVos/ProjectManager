@@ -1,0 +1,30 @@
+<div class="container p-4" style="background-color: rgb(194, 194, 194);">
+    <div class="row p-3 mt-2" style="background-color: rgb(156, 156, 156);">
+        <div class="col-6 me-3" style="background-color: rgb(221, 221, 221);">
+            <button class="btn btn-default">Add user</button>
+
+
+            <ul class="list-group list-group-flush user-list" >
+                <li   *ngFor="let user of users">
+                    <button class="list-group-item list-group-item-action"  [class.selected]="user === selectedUser" type="button" 
+                        (click)="onSelect(user)">
+                        <span class="badge">{{user.id}}  </span>
+                        <span>{{user.username}}</span>
+                    </button>
+
+                </li>
+            <div *ngIf="selectedUser">
+                <span class="list-group-item active">{{selectedUser.username}}</span>
+            </div>
+
+            </ul>
+        </div>
+        <div   class="col-4"  style="background-color: rgb(221, 221, 221)" *ngIf="selectedUser">
+            <app-user-details [name]="selectedUser.username">  </app-user-details>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- <pre>{{users | json }} </pre> -->
