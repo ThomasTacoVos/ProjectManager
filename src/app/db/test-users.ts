@@ -1,4 +1,5 @@
-import { User } from "../user";
+import { User } from "../user/models/user";
+
 
 export const UsersDB: User[] = [
   { id: 1, username: 'Thomas', password: "1234e" },

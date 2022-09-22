@@ -1,26 +1,22 @@
-Angular test project ticket systeem
+Angular project manager dedicated to learning the Angular framework
 
 
-Dashboard  dependency - Project, Ticket, user
+Specific modules featuring their components, containers, modules and services
 
-Project
-- Project
-- Project detail
-- Project service
-- Tickets
-- - Ticket
-- - Ticket detail
-- - Ticket service
+user module
+- user model
+- user list component
+- user details component -> child of user list
+
+login module
+- login form component
+- register component
+- authentication component
 
 
-Profile
-- User
-- User detail 
-- User service
-- Admin
-- - Admin detail
-- - Admin service
-- - Admin dashboard
+TODO:
 
-Message service
-- Om dingen te testen
+1. Sluitknop voor user-details
+2. Edit user voor user-details
+3. Add user voor user-list
+4. Filter / search voor user-list

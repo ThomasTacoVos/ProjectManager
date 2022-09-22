@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
-import { UserComponent } from './Users/user/user.component';
+import { LoginFormComponent } from './login/components/login-form/login-form.component';
+import { UserListComponent } from './user/components/userlist/user-list.component';
+
 
 const routes: Routes = [                // canActivate [AuthGuard]
  { path: '', component: DashboardComponent},
-  {path: 'profile', component: UserComponent},
-  {path: 'login', component: LoginComponent},
+  {path: 'user', component: UserListComponent},
+  {path: 'login', component: LoginFormComponent},
 ];
 
 @NgModule({
