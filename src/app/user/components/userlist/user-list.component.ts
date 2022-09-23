@@ -14,7 +14,12 @@ export class UserListComponent implements OnInit {
   users = UsersDB;
   selectedUser?: User;
   items: Item[] = [];
-  constructor(private userService: UserService) { }
+
+  constructor(
+    private userService: UserService
+    ) { 
+      
+    }
 
   ngOnInit(): void {
   
@@ -36,7 +41,6 @@ export class UserListComponent implements OnInit {
   //   if (this.selectedUser != undefined){
   //     this.selectedUser.firstname = updatedName;
   //   }
-
   // }
 
 }

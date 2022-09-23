@@ -6,6 +6,5 @@ export class Item{
         this.name= name;
         this.bgColor= bgColor;
 
-
     }
 }

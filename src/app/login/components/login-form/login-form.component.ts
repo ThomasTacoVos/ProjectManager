@@ -17,6 +17,7 @@ export class LoginFormComponent implements OnInit {
   loggedIn = false
   submitted = false
   loading = false
+  
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,

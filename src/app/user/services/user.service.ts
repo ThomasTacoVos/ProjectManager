@@ -6,8 +6,6 @@ import { UserDetailsComponent } from '../components/userdetails/user-details.com
 })
 export class UserService {
 
-
   constructor() { }
-
 
 }

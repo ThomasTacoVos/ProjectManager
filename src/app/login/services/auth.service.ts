@@ -27,9 +27,9 @@ export class AuthService {
     }
     return false;
   }
+
   getCurrentUser(){
     return this.currentUser?.firstname;
   }
-
 }
 

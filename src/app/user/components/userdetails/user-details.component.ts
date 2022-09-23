@@ -48,11 +48,6 @@ export class UserDetailsComponent implements OnInit {
     this.onClose.emit();
   }
 
-  // saveDetails(newName: string){
-  //   // const updatedUser = new User(newName)
-  //   this.onSave.emit(newName)
-  // }
-
   saveForm(){
     if (this.selectedUser != undefined){
       this.selectedUser.firstname = this.loginForm.value.firstname!
