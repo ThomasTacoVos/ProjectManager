@@ -27,13 +27,13 @@ These are the current working modules in the app:
 
 ## TODO:
 
-1. Improve structure:  Build the user service to improve the data flow
+1. Improve structure:  Build the user service to improve the data flow (this fixes multiple issues with the edit user details function)
 2. Add functionality:  Build an add user functin for user-list
 3. Add functionality:  Filter / search option for the user-list                
 
 ## Finished:
 - Add functionality: Close details button for user-details          
-- Add functionality: Add edit user details for user-details         small bug at first selecting an user
+- Add functionality: Add edit user details for user-details        
 
 
 ### Project information
