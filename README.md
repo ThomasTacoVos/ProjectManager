@@ -1,3 +1,42 @@
+# Angular project manager dedicated to learning the Angular framework
+Author: Thomas Vos
+Project starting date: 19-09-2022
+ 
+=========================================================================================
+
+
+Specific modules featuring their components, containers, modules and services
+
+user module
+- user model
+- user list component
+- user details component -> child of user list
+
+login module
+- login form component
+- register component
+- authentication component
+
+
+
+TODO:
+=========================================================================================
+
+1. Improve structure:  Build the user service to improve the data flow
+2. Add functionality:  Build an add user functin for user-list                  - On hold
+3. Add functionality:  Filter / search option for the user-list                 - On hold
+
+
+
+Finished:
+=========================================================================================
+Add functionality: Close details button for user-details          - Finished
+Add functionality: Add edit user details for user-details         - Finished (small bug)
+
+
+
+
+
 # Project manager
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
