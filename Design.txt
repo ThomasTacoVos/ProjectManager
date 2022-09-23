@@ -16,7 +16,7 @@ login module
 
 TODO:
 
-1. Sluitknop voor user-details
-2. Edit user voor user-details
-3. Add user voor user-list
-4. Filter / search voor user-list
+1. Sluitknop voor user-details          - Done
+2. Edit user voor user-details          - Busy
+3. Add user voor user-list              - On hold
+4. Filter / search voor user-list       - On hold

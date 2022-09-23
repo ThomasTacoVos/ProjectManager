@@ -17,19 +17,19 @@ export class AuthService {
 
   }
 
-  onSubmit({ username, password }: { username: string; password: string; }){
+  onSubmit({ firstname, password }: { firstname: string; password: string; }){
     for (let user of UsersDB){
-      // console.warn(user.username)
-      if (username == user.username && password == user.password){
+      // console.warn(user.firstname)
+      if (firstname == user.firstname && password == user.password){
         this.currentUser = user
         return true
       }
     }
     return false;
   }
-  getCurrentUser(){
-    return this.currentUser?.username;
-  }
 
+  getCurrentUser(){
+    return this.currentUser?.firstname;
+  }
 }
 
