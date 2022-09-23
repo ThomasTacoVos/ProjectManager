@@ -1,10 +1,13 @@
 # Project manager
 Author: Thomas Vos
+
 Project starting date: 15-09-2022
+
 Contributors: Thomas Vos
 
 ## Description
 This is a small project I have created dedicated to learning the Angular framework. Prior to this project I had little to none experience with it. 
+
 Aside from learning Angular I'm relearning Bootstrap and proper use of good HTML in this project.  
 
 ## Design
