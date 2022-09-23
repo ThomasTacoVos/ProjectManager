@@ -1,9 +1,9 @@
 <form class="form-signin w-100 m-auto"[formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <label for = "username">Username</label><br>
-    <input id="username" type = "text" formControlName = "username" class="form-control formInput"
-        [ngClass]="{'is-invalid': submitted && f.username.errors }" >
-    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-        <div *ngIf="f.username.errors?.['required']">Username is required</div>
+    <label for = "firstname">Firstname</label><br>
+    <input id="firstname" type = "text" formControlName = "firstname" class="form-control formInput"
+        [ngClass]="{'is-invalid': submitted && f.firstname.errors }" >
+    <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+        <div *ngIf="f.firstname.errors?.['required']">Firstname is required</div>
     </div> 
     
     <br>

@@ -10,36 +10,40 @@ import { User } from 'src/app/user/models/user';
 })
 export class LoginFormComponent implements OnInit {
     loginForm = this.fb.group({
-    username: ['', Validators.required],
+    firstname: ['', Validators.required],
     password: ['', Validators.required]
 
   })
   loggedIn = false
   submitted = false
   loading = false
+  
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
     ) { 
 
-
     }
 
   ngOnInit(): void {
     
   }
-  get f() { return this.loginForm.controls}
+
+  get f() { 
+    return this.loginForm.controls
+  }
+
   onSubmit() {
     this.submitted = true
-    // console.warn('dit zijn errors' + this.f.username.errors?.[required)
+    // console.warn('dit zijn errors' + this.f.firstname.errors?.[required)
     console.warn(this.loginForm.value);
     if (this.loginForm.invalid) {
       console.log("form invalid")
       return;
     }
     this.loading = true
-     if (this.authService.onSubmit({ username: this.loginForm.value.username!, password: this.loginForm.value.password! }) ){
+     if (this.authService.onSubmit({ firstname: this.loginForm.value.firstname!, password: this.loginForm.value.password! }) ){
         console.warn('hello')      
         this.router.navigate(['']);
      }

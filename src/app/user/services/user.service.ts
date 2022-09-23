@@ -1,17 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserDetailsComponent } from '../components/userdetails/user-details.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  login(){
-    
-  }
-
 
   constructor() { }
-
 
 }

@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersDB } from 'src/app/db/test-users';
 import { UserService } from 'src/app/user/services/user.service';
+import { Item } from '../../models/item';
 import { User } from '../../models/user';
 
 @Component({
@@ -10,17 +11,36 @@ import { User } from '../../models/user';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users = UsersDB
+  users = UsersDB;
   selectedUser?: User;
-  onSelect(user: User): void {
-  this.selectedUser = user;
-}
-  constructor(private userService: UserService) { }
+  items: Item[] = [];
+
+  constructor(
+    private userService: UserService
+    ) { 
+      
+    }
 
   ngOnInit(): void {
-
   
   }
 
+  onSelect(user: User): void {
+    this.selectedUser = user;
+  }
+
+  deselectUser(): void {
+    this.selectedUser = null!;
+  }
+
+  addItem(newItem:Item): void {
+    this.items.push(newItem);
+  }
+
+  // saveDetails(updatedName:string): void {
+  //   if (this.selectedUser != undefined){
+  //     this.selectedUser.firstname = updatedName;
+  //   }
+  // }
 
 }
