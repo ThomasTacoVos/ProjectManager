@@ -1,13 +1,16 @@
 <div class="container p-4" style="background-color: rgb(194, 194, 194);">
     <div class="row p-3 mt-2" style="background-color: rgb(156, 156, 156);">
         <div class="col-6 me-3" style="background-color: rgb(221, 221, 221);">
-            <button class="btn btn-default">Add user</button>
+            <button class="btn btn-success" (click)="deselectUser(); selectAdd()">Add user</button>
+
             <ul class="list-group list-group-flush user-list" >
                 <li   *ngFor="let user of users">
-                    <button class="list-group-item list-group-item-action"  [class.selected]="user === selectedUser" type="button" 
-                        (click)="onSelect(user)">
+                    <!-- [class.selected]="user === selectedUser" -->
+                    <button class="list-group-item list-group-item-action" style="width: 100%"  type="button" 
+                        (click)="onSelect(user); deselectAdding(); deselectDelete();">
                         <span class="badge">{{user.id}}  </span>
                         <span>{{user.firstname}} {{user.lastname}}</span>
+                        <button class="btn btn-danger align-self-end " (click)="selectDelete()">X</button>
                     </button>
                 </li>
             <!-- <div *ngIf="selectedUser">
@@ -16,17 +19,30 @@
 
             </ul>
         </div>
-        <div  class="col-4"  style="background-color: rgb(221, 221, 221)" *ngIf="selectedUser">
+        <div  class="col-4" style="background-color: rgb(221, 221, 221)" *ngIf="selectedUser" >
             <app-user-details [selectedUser]="this.selectedUser"
                 (onClose)="deselectUser()" 
                 (newItemEvent)="addItem($event)"
-                
                 >  
             </app-user-details>
+        </div>
+
+        <div  class="col-4" style="background-color: rgb(221, 221, 221)" *ngIf="addingUser">
+            <app-add-user>
+                
+            </app-add-user>
+        </div>
+
+        <div  class="col-4" style="background-color: rgb(221, 221, 221)" *ngIf="deleteUser">
+            <app-delete-user>
+                
+            </app-delete-user>
+        </div>
+            
             <!-- <ul>
                 <li  *ngFor="let item of items"><p  [ngStyle]="{'background-color': item.bgColor }">{{item.name}}</p></li>
               </ul> -->
-        </div>
+
     </div>
 </div>
 <!-- <pre>{{users | json }} </pre> -->

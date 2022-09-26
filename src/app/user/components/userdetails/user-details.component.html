@@ -4,15 +4,16 @@
                 <label  for="firstname" style="margin-top: 5%;">Name </label> 
             </div>
             <div class="col-6  h-25" style="background-color: #b0f3ff;">
-                <input class="form-control" style="margin-top: 2%;"  value="{{selectedUser?.firstname}}" 
-                id="firstname" formControlName = "firstname"  #updatedUser>
+                <input class="form-control" style="margin-top: 2%;"  value="{{selectedUser.firstname}}" 
+                id="firstname" formControlName = "firstname" >
             </div>
+            
             <div class="col-6  h-25" style="background-color: #b0ffb0;">
                 <label for="lastname" style="margin-top: 5%;">Last name  </label> 
             </div>
             <div class="col-6  h-25" style="background-color: #b0f3ff;">
-                <input class="form-control" style="margin-top: 2%;"  value="{{selectedUser?.lastname}}" 
-                id="lastname" formControlName = "lastname"  #updatedUser>
+                <input class="form-control" style="margin-top: 2%;"  value="{{selectedUser.lastname}}" 
+                id="lastname" formControlName = "lastname" >
             </div>
             <div class="col-6 align-self-end " style="background-color: #b0ffb7;">
                 <button type="submit" class="btn btn-success">Save</button>

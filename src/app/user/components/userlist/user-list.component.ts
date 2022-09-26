@@ -11,18 +11,23 @@ import { User } from '../../models/user';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users = UsersDB;
+  users: User[] = [];
   selectedUser?: User;
+  addingUser = false;
+  deleteUser = false;
   items: Item[] = [];
 
   constructor(
     private userService: UserService
-    ) { 
-      
-    }
+    ) {     }
 
   ngOnInit(): void {
-  
+    this.getUsers();
+  }
+
+  getUsers(): void {
+    this.userService.getUsers()
+    .subscribe(users => this.users = users);
   }
 
   onSelect(user: User): void {
@@ -31,6 +36,21 @@ export class UserListComponent implements OnInit {
 
   deselectUser(): void {
     this.selectedUser = null!;
+  }
+
+  selectAdd(): void {
+    this.addingUser = true;
+  }
+  deselectAdding(): void{
+    this.addingUser = false;
+  }
+
+
+  selectDelete(): void {
+    this.addingUser = true;
+  }
+  deselectDelete(): void{
+    this.addingUser = false;
   }
 
   addItem(newItem:Item): void {

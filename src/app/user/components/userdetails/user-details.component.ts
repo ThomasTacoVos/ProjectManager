@@ -10,18 +10,20 @@ import { User } from '../../models/user';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
-  @Input() selectedUser?: User;
+  @Input() selectedUser!: User;
+  @Output() updateUser = new EventEmitter<User>();
+  
   @Output() newItemEvent = new EventEmitter<Item>();
   @Output() onClose = new EventEmitter<void>();
+
   // @Output() onSave = new EventEmitter<User>()
   loginForm = this.fb.group({
-    firstname: ['', Validators.required],
-    lastname: ['', Validators.required],
-    password: ['', Validators.required],
-    test: []
+    firstname: [this.selectedUser?.firstname, Validators.required],
+    lastname: [this.selectedUser?.lastname, Validators.required],
 
   })
   submitted = false
+
 
   constructor(    
     private fb: FormBuilder
@@ -34,7 +36,7 @@ export class UserDetailsComponent implements OnInit {
     return this.loginForm.controls
   }
 
-  addNewItem(value:string){
+  addNewItem(value:string) : void {
     if (value.length > 0){
       const newItem = new Item(value, "blue");
       if (value.length > 3 ){
@@ -44,21 +46,16 @@ export class UserDetailsComponent implements OnInit {
     }
   }
   
-  closeDetails(){
+  closeDetails(): void {
     this.onClose.emit();
   }
 
-  saveForm(){
+  saveForm(): void {
     if (this.selectedUser != undefined){
       this.selectedUser.firstname = this.loginForm.value.firstname!
       this.selectedUser.lastname = this.loginForm.value.lastname!
     }
   }
 
-  updateUser(){
-    if (this.selectedUser != undefined){
-      this.f['firstname'].setValue(this.selectedUser.firstname);
-    }
 
-  }
 }

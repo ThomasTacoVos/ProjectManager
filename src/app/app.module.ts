@@ -11,6 +11,13 @@ import { LoginFormComponent } from './login/components/login-form/login-form.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { AddUserComponent } from './user/components/add-user/add-user.component';
+import { DeleteUserComponent } from './user/components/delete-user/delete-user.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './db/in-memory-data.service';
+import { AuthService } from './login/services/auth.service';
+import { UserService } from './user/services/user.service';
 
 @NgModule({
   declarations: [
@@ -21,15 +28,22 @@ import { NavigationComponent } from './navigation/navigation.component';
     LoginFormComponent,
     DashboardComponent,
     NavigationComponent,
-    UserListComponent
+    UserListComponent,
+    AddUserComponent,
+    DeleteUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    UserService,
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
