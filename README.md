@@ -30,6 +30,7 @@ These are the current working modules in the app:
 
 ## TODO:
 
+0. Improve structure:  Remove the Http parts and remake the connect to local database
 1. Improve structure:  Build the user service to improve the data flow (this fixes multiple issues with the edit user details function)
 2. Add functionality:  Build an add user function for user-list
 3. Add functionality:  Build validation for the add user function for user-list
