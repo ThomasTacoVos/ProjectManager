@@ -1,0 +1,24 @@
+<div class="container p-4 h-100" style="background-color: #91fff9;">
+    <form class="h-100 row p-3" style="background-color: #ffbf83;" [formGroup]="loginForm" (ngSubmit)="saveForm()">
+            <div class="col-6  h-25" style="background-color: #b0ffb0;">
+                <label  for="firstname" style="margin-top: 5%;">Name </label> 
+            </div>
+            <div class="col-6  h-25" style="background-color: #b0f3ff;">
+                <input class="form-control" style="margin-top: 2%;"  
+                id="firstname" formControlName = "firstname"  #updatedUser>
+            </div>
+            <div class="col-6  h-25" style="background-color: #b0ffb0;">
+                <label for="lastname" style="margin-top: 5%;">Last name  </label> 
+            </div>
+            <div class="col-6  h-25" style="background-color: #b0f3ff;">
+                <input class="form-control" style="margin-top: 2%;"
+                id="lastname" formControlName = "lastname"  #updatedUser>
+            </div>
+            <div class="col-6 align-self-end " style="background-color: #b0ffb7;">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+            <div class="col-6 align-self-end " style="background-color: #ffd0b0;">
+                <button class="btn btn-danger "  (click)="closeDetails()">Close details</button>
+            </div>
+    </form>
+</div>

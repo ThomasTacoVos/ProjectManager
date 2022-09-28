@@ -11,9 +11,9 @@ import { User } from '../../models/user';
 })
 export class UserDetailsComponent implements OnInit {
   @Input() selectedUser?: User;
-  @Input() refresh = false
   @Output() newItemEvent = new EventEmitter<Item>();
   @Output() onClose = new EventEmitter<void>();
+  @Output() onSave = new EventEmitter<User>();
   // @Output() onSave = new EventEmitter<User>()
   loginForm = this.fb.group({
     firstname: ['', Validators.required],
@@ -30,10 +30,9 @@ export class UserDetailsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    if (this.refresh){
       this.f['firstname'].setValue(this.selectedUser?.firstname!) 
       this.f['lastname'].setValue(this.selectedUser?.lastname!) 
-    }
+    
   }
   get f() { 
     return this.loginForm.controls
@@ -54,10 +53,20 @@ export class UserDetailsComponent implements OnInit {
   }
 
   saveForm(){
-    if (this.selectedUser != undefined){
-      this.selectedUser.firstname = this.loginForm.value.firstname!
-      this.selectedUser.lastname = this.loginForm.value.lastname!
-    }
+
+
+    let model = new User(
+      this.selectedUser?.id ?? 0, 
+      this.loginForm.controls.firstname.value ?? '',
+      this.loginForm.controls.lastname.value ?? '',
+      this.loginForm.controls.password.value ?? ''
+      );
+
+ 
+    
+    
+    
+    this.onSave.emit(model)
   }
 
 

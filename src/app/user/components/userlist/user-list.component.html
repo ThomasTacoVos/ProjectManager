@@ -1,7 +1,7 @@
 <div class="container p-4" style="background-color: rgb(194, 194, 194);">
     <div class="row p-3 mt-2" style="background-color: rgb(156, 156, 156);">
         <div class="col-6 me-3" style="background-color: rgb(221, 221, 221);">
-            <button class="btn btn-default">Add user</button>
+            <button class="btn btn-success" (click)="addUser()" >Add user</button>
             <ul class="list-group list-group-flush user-list" >
                 <li   *ngFor="let user of users">
                     <button class="list-group-item list-group-item-action"  [class.selected]="user === selectedUser" type="button" 
@@ -16,17 +16,23 @@
 
             </ul>
         </div>
-        <div  class="col-4"  style="background-color: rgb(221, 221, 221)" *ngIf="selectedUser">
-            <app-user-details [selectedUser]="selectedUser" [refresh]=true
-                (onClose)="deselectUser()" 
+        <div  class="col-4"  style="background-color: rgb(221, 221, 221)" *ngIf="selectedUser || adding" >
+            <app-user-details [selectedUser]="selectedUser" *ngIf="selectedUser" 
+                (onClose)="deselectUser()"
+                (onSave)="saveUser($event)" 
                 (newItemEvent)="addItem($event)"
                 
                 >  
+  
             </app-user-details>
+            <app-user-add *ngIf="adding" (onClose)="closeSaves()" >
+
+            </app-user-add>
+
             <!-- <ul>
                 <li  *ngFor="let item of items"><p  [ngStyle]="{'background-color': item.bgColor }">{{item.name}}</p></li>
               </ul> -->
-        </div>
     </div>
 </div>
+
 <!-- <pre>{{users | json }} </pre> -->

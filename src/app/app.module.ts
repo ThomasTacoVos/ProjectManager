@@ -11,6 +11,7 @@ import { LoginFormComponent } from './login/components/login-form/login-form.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { UserAddComponent } from './user/components/user-add/user-add/user-add.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     LoginFormComponent,
     DashboardComponent,
     NavigationComponent,
-    UserListComponent
+    UserListComponent,
+    UserAddComponent,
   ],
   imports: [
     BrowserModule,
