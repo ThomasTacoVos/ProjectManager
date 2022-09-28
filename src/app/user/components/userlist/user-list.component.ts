@@ -28,6 +28,9 @@ export class UserListComponent implements OnInit {
   onSelect(user: User): void {
     this.selectedUser = user;
   }
+  onChange(updatedUser: User){
+    console.log(updatedUser.firstname);
+  }
 
   deselectUser(): void {
     this.selectedUser = null!;
