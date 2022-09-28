@@ -17,8 +17,7 @@
             </ul>
         </div>
         <div  class="col-4"  style="background-color: rgb(221, 221, 221)" *ngIf="selectedUser">
-            <app-user-details [selectedUser]="this.selectedUser" 
-                (onChange)="onChange($event)"
+            <app-user-details [selectedUser]="selectedUser" [refresh]=true
                 (onClose)="deselectUser()" 
                 (newItemEvent)="addItem($event)"
                 
