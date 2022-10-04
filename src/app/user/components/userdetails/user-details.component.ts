@@ -19,10 +19,8 @@ export class UserDetailsComponent implements OnInit {
     firstname: ['', Validators.required],
     lastname: ['', Validators.required],
     password: ['', Validators.required],
-    test: []
 
   })
-  submitted = false
 
   constructor(    
     private fb: FormBuilder
@@ -30,9 +28,9 @@ export class UserDetailsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-      this.f['firstname'].setValue(this.selectedUser?.firstname!) 
-      this.f['lastname'].setValue(this.selectedUser?.lastname!) 
-    
+      this.f['firstname'].setValue(this.selectedUser?.firstname!); 
+      this.f['lastname'].setValue(this.selectedUser?.lastname!);
+      this.f['password'].setValue(this.selectedUser?.password!);
   }
   get f() { 
     return this.loginForm.controls
@@ -53,21 +51,14 @@ export class UserDetailsComponent implements OnInit {
   }
 
   saveForm(){
-
-
     let model = new User(
       this.selectedUser?.id ?? 0, 
       this.loginForm.controls.firstname.value ?? '',
       this.loginForm.controls.lastname.value ?? '',
       this.loginForm.controls.password.value ?? ''
       );
-
- 
-    
-    
-    
+      console.log(model.firstname)
     this.onSave.emit(model)
+    this.closeDetails()
   }
-
-
 }

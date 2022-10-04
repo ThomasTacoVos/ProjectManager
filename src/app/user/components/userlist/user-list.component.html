@@ -3,7 +3,7 @@
         <div class="col-6 me-3" style="background-color: rgb(221, 221, 221);">
             <button class="btn btn-success" (click)="addUser()" >Add user</button>
             <ul class="list-group list-group-flush user-list" >
-                <li   *ngFor="let user of users | async">
+                <li   *ngFor="let user of users$ | async">
                     <button class="list-group-item list-group-item-action"  [class.selected]="user === selectedUser" type="button" 
                         (click)="onSelect(user)">
                         <span class="badge">{{user.id}}  </span>
@@ -16,8 +16,8 @@
 
             </ul>
         </div>
-        <div  class="col-4"  style="background-color: rgb(221, 221, 221)" *ngIf="selectedUser || adding" >
-            <app-user-details [selectedUser]="selectedUser" *ngIf="selectedUser" 
+        <div  class="col-4"  style="background-color: rgb(221, 221, 221)" *ngIf="selectedUser" >
+            <app-user-details [selectedUser]="selectedUser"  
                 (onClose)="deselectUser()"
                 (onSave)="saveUser($event)" 
                 (newItemEvent)="addItem($event)"

@@ -11,10 +11,9 @@ import { User } from '../../models/user';
 })
 export class UserListComponent implements OnInit {
 
-  public users = this.userService.userList$;
+  public users$ = this.userService.userList$;
   // users = UsersDB;
   selectedUser?: User;
-  adding = false;
   items: Item[] = [];
 
   constructor(
@@ -28,12 +27,7 @@ export class UserListComponent implements OnInit {
   }
 
   onSelect(user: User): void {
-    this.adding = false;
     this.selectedUser = user;
-  }
-
-  closeSaves(){
-    this.adding = false;
   }
 
   deselectUser(): void {
@@ -51,9 +45,21 @@ export class UserListComponent implements OnInit {
     this.items.push(newItem);
   }
 
-  saveUser(user: User){
-    // console.log(this.users);
-    // let index = this.users.findIndex(x => x.id === this.selectedUser?.id);
+  saveUser(savedUser: User){
+    console.log('this is users', this.users$)
+    console.log('saveduser', savedUser)
+    this.users$.subscribe({
+      next(user){
+        if (savedUser.id == -1){
+          user.push(savedUser);
+          console.log('ADDED USER:', user);
+        } else {
+          user[savedUser.id-1] = savedUser;
+          console.log('CHANGED USER', savedUser)
+        }
+      }
+      
+    })
 
 
     // console.log(this.users)
@@ -72,6 +78,7 @@ export class UserListComponent implements OnInit {
     // }
     // this.users = userList;
   }
+
   // saveDetails(updatedName:string): void {
   //   if (this.selectedUser != undefined){
   //     this.selectedUser.firstname = updatedName;
