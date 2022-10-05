@@ -21,7 +21,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     LoginFormComponent,
     DashboardComponent,
     NavigationComponent,
-    UserListComponent
+    UserListComponent,
+
   ],
   imports: [
     BrowserModule,

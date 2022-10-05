@@ -13,15 +13,14 @@ export class UserDetailsComponent implements OnInit {
   @Input() selectedUser?: User;
   @Output() newItemEvent = new EventEmitter<Item>();
   @Output() onClose = new EventEmitter<void>();
+  @Output() onSave = new EventEmitter<User>();
   // @Output() onSave = new EventEmitter<User>()
   loginForm = this.fb.group({
     firstname: ['', Validators.required],
     lastname: ['', Validators.required],
     password: ['', Validators.required],
-    test: []
 
   })
-  submitted = false
 
   constructor(    
     private fb: FormBuilder
@@ -29,6 +28,9 @@ export class UserDetailsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+      this.f['firstname'].setValue(this.selectedUser?.firstname!); 
+      this.f['lastname'].setValue(this.selectedUser?.lastname!);
+      this.f['password'].setValue(this.selectedUser?.password!);
   }
   get f() { 
     return this.loginForm.controls
@@ -49,16 +51,14 @@ export class UserDetailsComponent implements OnInit {
   }
 
   saveForm(){
-    if (this.selectedUser != undefined){
-      this.selectedUser.firstname = this.loginForm.value.firstname!
-      this.selectedUser.lastname = this.loginForm.value.lastname!
-    }
-  }
-
-  updateUser(){
-    if (this.selectedUser != undefined){
-      this.f['firstname'].setValue(this.selectedUser.firstname);
-    }
-
+    let model = new User(
+      this.selectedUser?.id ?? 0, 
+      this.loginForm.controls.firstname.value ?? '',
+      this.loginForm.controls.lastname.value ?? '',
+      this.loginForm.controls.password.value ?? ''
+      );
+      console.log(model.firstname)
+    this.onSave.emit(model)
+    this.closeDetails()
   }
 }

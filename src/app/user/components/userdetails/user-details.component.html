@@ -4,7 +4,7 @@
                 <label  for="firstname" style="margin-top: 5%;">Name </label> 
             </div>
             <div class="col-6  h-25" style="background-color: #b0f3ff;">
-                <input class="form-control" style="margin-top: 2%;"  value="{{selectedUser?.firstname}}" 
+                <input class="form-control" style="margin-top: 2%;"  [value]="selectedUser?.firstname"
                 id="firstname" formControlName = "firstname"  #updatedUser>
             </div>
             <div class="col-6  h-25" style="background-color: #b0ffb0;">
@@ -13,6 +13,14 @@
             <div class="col-6  h-25" style="background-color: #b0f3ff;">
                 <input class="form-control" style="margin-top: 2%;"  value="{{selectedUser?.lastname}}" 
                 id="lastname" formControlName = "lastname"  #updatedUser>
+            </div>
+
+            <div class="col-6  h-25" style="background-color: #b0ffb0;">
+                <label for="password" style="margin-top: 5%;">Password  </label> 
+            </div>
+            <div class="col-6  h-25" style="background-color: #b0f3ff;">
+                <input class="form-control" style="margin-top: 2%;" type="password"  value="{{selectedUser?.password}}" 
+                id="password" formControlName = "password"  #updatedUser>
             </div>
             <div class="col-6 align-self-end " style="background-color: #b0ffb7;">
                 <button type="submit" class="btn btn-success">Save</button>
